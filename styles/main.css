@@ -1,0 +1,74 @@
+.main{
+    display: flex;
+    place-content: center;
+    flex-direction: column;
+    height: 100%;
+    max-width:500px;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+}
+/* navbar */
+.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 58px;
+    border-radius: 5px;
+}
+.navbar_searchbar{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    border: 4px white solid;
+    border-radius: 10px;
+
+}
+.navbar_searchbar input{
+    width: 80%;
+    height: 100%;
+    color: white;
+    background-color: transparent;
+    border: 0px;
+    margin-left: 20px;
+    font-size: 25px;
+}
+.navbar_searchbar input:focus{
+outline: none;
+}
+.navbar_search-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 20%;
+    
+}
+
+.navbar_menu-btn{
+    width: 55px;
+    height: 100%;
+    border: 4px white solid;
+    border-radius: 10px;
+}
+/* main temperature */
+.main-temperature-container{
+    min-height: 300px;
+    border-radius: 5px;
+    border: 4px white solid;
+    
+}
+/* hours */
+.hours-container{
+    min-height: 100px;
+    border-radius: 5px;
+    border: 4px white solid;
+}
+/* days */
+.days-container{
+    min-height: 200px;
+    border-radius: 5px;
+    border: 4px white solid;
+    
+}
