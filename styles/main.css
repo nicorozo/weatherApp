@@ -5,8 +5,8 @@
     height: 100%;
     max-width:500px;
     width: 100%;
-    padding: 1rem;
-    gap: 1rem;
+    padding: 2rem;
+    gap: 3rem;
 }
 /* navbar */
 .navbar-container{
@@ -22,7 +22,7 @@
     width: 80%;
     height: 100%;
     border: 4px white solid;
-    border-radius: 10px;
+    border-radius: 15px;
 
 }
 .navbar_searchbar input{
@@ -43,31 +43,76 @@ outline: none;
     justify-content: center;
     height: 100%;
     width: 20%;
-    
 }
 
 .navbar_menu-btn{
     width: 55px;
     height: 100%;
     border: 4px white solid;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0,.7);
 }
 /* main temperature */
-.main-temperature-container{
+.main_temperature-container{
     min-height: 300px;
     border-radius: 5px;
     border: 4px white solid;
-    
+    padding: 2rem;
 }
+.main_upper-container{
+    display: flex;
+    justify-content: space-between;
+}
+.upper-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.main_location-icon{
+    margin-left: -10px;
+    font-size: 30px;
+}
+.main_country{
+    color: rgba(255, 255, 255, 0.5) ;
+    font-weight: 500;
+}
+.main_city{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.main_sun-icon{
+    width: 100px;
+    font-size: 100px;
+}
+/* main-lower */
+.main_lower-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+.main_temperature{
+    font-size: 128px;
+    font-weight: 500;
+    background: linear-gradient(#ffffff, rgba(151, 151, 151, 0.5));
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
+
+}
+.main_weather-word{
+    font-weight: 500;
+    font-size: 2rem;
+}
+
 /* hours */
 .hours-container{
-    min-height: 100px;
+    min-height: 80px;
     border-radius: 5px;
     border: 4px white solid;
 }
 /* days */
 .days-container{
-    min-height: 200px;
+    min-height: 150px;
     border-radius: 5px;
     border: 4px white solid;
     
