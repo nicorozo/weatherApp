@@ -1,4 +1,5 @@
 //fetched data to DOM
+import { format } from "date-fns"
 import { dummyData } from "./dummy"
 
 
@@ -14,12 +15,35 @@ export function Card(data){
 
         return {country,city}
     }
+    function getDegrees(){
+        const degreesArray =  data.currentConditions.temp.toString().split('.')
+        const degrees= degreesArray[0]
+        return degrees
+    }
+    function getDate(){
+        const dayOfWeek = format(new Date(), 'eeee', 'd')
+        const dayNumber = format(new Date(), 'd')
+
+        const date = new Date();
+        const offset = date.getTimezoneOffset() / 60;
+        const localTime = new Date(date.getTime() + offset * 60 * 1000);
+      
+        // Get the hour from local time
+        const hour = localTime.getHours();
+
+        const minutes = format(new Date(), 'm')
+        
+        
+        return {dayOfWeek,dayNumber,hour,minutes}
+    }
+
 
     const cleanData= {
         country: getLocation().country,
         city: getLocation().city,
-        temperature:data.currentConditions.temp,
+        temperature: getDegrees() + '°',
         weatherDescription: data.currentConditions.conditions,
+        date: getDate(),
         icon: 'still pending',
 
     }
@@ -36,4 +60,5 @@ export function Card(data){
     city.innerText = cleanData.city
     mainTemperature.innerText = cleanData.temperature
     weatherWord.innerText = cleanData.weatherDescription
+    mainDate.innerText = `${cleanData.date.dayOfWeek}, ${cleanData.date.dayNumber} - ${cleanData.date.hour}:${cleanData.date.minutes}` 
 }
