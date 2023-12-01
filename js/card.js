@@ -3,6 +3,8 @@ import { format } from "date-fns"
 import { dummyData } from "./dummy"
 
 
+
+
 export function Card(data){
     console.trace()
     console.log(data)
@@ -20,7 +22,7 @@ export function Card(data){
         const degrees= degreesArray[0]
         return degrees
     }
-    function getDate(){
+    function getDate(city){
         const dayOfWeek = format(new Date(), 'eeee', 'd')
         const dayNumber = format(new Date(), 'd')
 
@@ -36,6 +38,13 @@ export function Card(data){
         
         return {dayOfWeek,dayNumber,hour,minutes}
     }
+    function getIcon(x){
+        const icon = data.days[x].icon
+
+        console.log(icon)
+        const iconRelPath =`/public/icons/${icon}.svg`
+        return iconRelPath
+    }
 
 
     const cleanData= {
@@ -44,7 +53,7 @@ export function Card(data){
         temperature: getDegrees() + '°',
         weatherDescription: data.currentConditions.conditions,
         date: getDate(),
-        icon: 'still pending',
+        icon: getIcon(0) || "",
 
     }
 
@@ -55,10 +64,13 @@ export function Card(data){
     const mainTemperature = cardSection.querySelector('.main_temperature')
     const weatherWord = cardSection.querySelector('.main_weather-word')
     const mainDate = cardSection.querySelector('.main_date-time')
+    const mainIcon = cardSection.querySelector('.main_icon')
     
     country.innerText = cleanData.country
     city.innerText = cleanData.city
     mainTemperature.innerText = cleanData.temperature
     weatherWord.innerText = cleanData.weatherDescription
     mainDate.innerText = `${cleanData.date.dayOfWeek}, ${cleanData.date.dayNumber} - ${cleanData.date.hour}:${cleanData.date.minutes}` 
+    mainIcon.setAttribute('src',cleanData.icon)
+    
 }

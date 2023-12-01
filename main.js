@@ -7,7 +7,7 @@ export default async function fetchingData() {
 
     const apiKey = '6E9W5YSKUUH74ZCT24N29YQ5E'
     const city = "wroclaw" // searchedResult || "wroclaw" this may need to be await and inside fetching function 
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${apiKey}&contentType=json`
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${apiKey}&inlcude=hours&contentType=json`
 
 
     try{
