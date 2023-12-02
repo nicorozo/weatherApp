@@ -80,10 +80,11 @@ outline: none;
     font-size: 2rem;
     font-weight: 500;
 }
+
 .main_icon{
     width: 100px;
     font-size: 100px;
-    stroke: #ffffff;
+    fill: #ffffff;
 }
 /* main-lower */
 .main_lower-container{

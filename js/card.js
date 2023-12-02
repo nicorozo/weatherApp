@@ -40,9 +40,7 @@ export function Card(data){
     }
     function getIcon(x){
         const icon = data.days[x].icon
-
-        console.log(icon)
-        const iconRelPath =`/public/icons/${icon}.svg`
+        const iconRelPath =`/icons/${icon}.svg`
         return iconRelPath
     }
 
@@ -73,4 +71,13 @@ export function Card(data){
     mainDate.innerText = `${cleanData.date.dayOfWeek}, ${cleanData.date.dayNumber} - ${cleanData.date.hour}:${cleanData.date.minutes}` 
     mainIcon.setAttribute('src',cleanData.icon)
     
+}
+
+export function temperatureHours(data){
+    const dataHours = data.days[0].hours
+    const currentHour = data.currentConditions.datetime.split(':')
+
+    const section = document.querySelector('.hours-container')
+
+    console.log(dataHours, currentHour[0])
 }

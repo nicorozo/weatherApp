@@ -1,6 +1,6 @@
 import './style.css'
 import './styles/main.css'
-import { Card } from './js/card'
+import { Card, temperatureHours } from './js/card'
 
 
 export default async function fetchingData() {
@@ -15,6 +15,7 @@ export default async function fetchingData() {
         const data = await response.json()
         
         Card(data)
+        temperatureHours(data)
         return data
     }
     catch (error){
