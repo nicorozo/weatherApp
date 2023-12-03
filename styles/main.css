@@ -107,10 +107,31 @@ outline: none;
 
 /* hours */
 .hours-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
     min-height: 80px;
     border-radius: 5px;
     border: 4px white solid;
+    padding: 5px;
 }
+.hours-small-card{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    align-items: center;
+    background-color: rgba(9, 9, 9, 0.1);
+    justify-content: center;
+    border-radius: 5px;
+}
+.hours-small-card img{
+    width: 50%;
+}
+
 /* days */
 .days-container{
     min-height: 150px;

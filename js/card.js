@@ -75,9 +75,57 @@ export function Card(data){
 
 export function temperatureHours(data){
     const dataHours = data.days[0].hours
-    const currentHour = data.currentConditions.datetime.split(':')
+    const dataHoursNextDay = data.days[1].hours
+    const dateTimeHour = data.currentConditions.datetime.split(':')
+    const currentHour = dateTimeHour[0]
+    const arrayHours = []
 
-    const section = document.querySelector('.hours-container')
 
-    console.log(dataHours, currentHour[0])
+    console.log(dataHours, currentHour)
+
+    //iterate from current hour[0] to display next 5 hours
+    let x = 0 // x represents the hours used in this day
+    for (let startingHour = currentHour; startingHour < dataHours.length; startingHour++) {
+        const todayHours = dataHours[startingHour]
+        arrayHours.push(todayHours)
+        //console.log(dataHours[startingHour])
+        
+        x++
+    }
+    const remainer =  (5-x )
+    for (let nextDayStartingHours = 0; nextDayStartingHours < remainer; nextDayStartingHours++) {
+        const nextDayHours = dataHoursNextDay[nextDayStartingHours]
+        arrayHours.push(nextDayHours)
+    }
+    console.log(arrayHours)
+
+    function displayHours(array){
+        const section = document.querySelector('.hours-container')
+
+
+        array.forEach((hour )=> {
+            const [hourText,minutes,seconds] = hour.datetime.split(':')
+
+
+            const smallCard = document.createElement('div')
+            smallCard.classList.add('hours-small-card')
+            section.appendChild(smallCard)
+            
+            const title = document.createElement('span')
+            title.classList.add('hours_title')
+            title.textContent = hourText
+            smallCard.appendChild(title)
+
+            const icon = document.createElement('img')
+            icon.classList.add('hours_icon')
+            icon.setAttribute('src', `/icons/${hour.icon}.svg`)
+            smallCard.appendChild(icon)
+
+            const temperature = document.createElement('span')
+            temperature.classList.add('hours_temperature')
+            temperature.textContent = hour.temp
+            smallCard.appendChild(temperature)
+        })
+    }
+    displayHours(arrayHours)
 }
