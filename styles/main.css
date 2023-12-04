@@ -106,36 +106,85 @@ outline: none;
 }
 
 /* hours */
-.hours-container{
+.hours_container{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
 
     min-height: 80px;
-    border-radius: 5px;
-    border: 4px white solid;
+    border-radius: 8px;
+    background-color: rgba(193, 193, 193, 0.2);
     padding: 5px;
+    color: black;
 }
-.hours-small-card{
+.hours_small-card{
     display: flex;
     width: 100%;
     flex-direction: column;
     gap: 5px;
     padding: 5px;
     align-items: center;
-    background-color: rgba(9, 9, 9, 0.1);
     justify-content: center;
-    border-radius: 5px;
+    border: 1px  inset rgba(235, 235, 235, 0.1);
+    border-radius: 2px;
+    color: rgb(0, 0, 0);
 }
-.hours-small-card img{
-    width: 50%;
+.hours_title{
+    font-weight: 500;
+}
+.hours_icon-container{
+    height: 20px;
+}
+.hours_icon-container img{
+    width: 20px;
+}
+.hours_temperature{
+    font-weight: 500;
 }
 
 /* days */
-.days-container{
+.days_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 150px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 4px white solid;
-    
+    color: black;
+    gap: 1px;
+}
+.days_small-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: .4rem;
+    gap: 1rem;
+}
+.days_title-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.days_title{
+font-weight: 500;
+}
+.days_title-date{
+    font-size: .6rem;
+}
+.days_icon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+}
+.days_icon{
+    width: 70%;
+}
+.days_temperature{
+    font-weight: 500;
 }

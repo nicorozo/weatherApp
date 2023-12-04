@@ -1,6 +1,13 @@
 import './style.css'
 import './styles/main.css'
-import { Card, temperatureHours } from './js/card'
+import { Card, displayDays, temperatureHours } from './js/card'
+
+
+/* Pending List
+
+    -compensate hours of different locations
+    -correct color of icons
+*/
 
 
 export default async function fetchingData() {
@@ -16,6 +23,7 @@ export default async function fetchingData() {
         
         Card(data)
         temperatureHours(data)
+        displayDays(data)
         return data
     }
     catch (error){

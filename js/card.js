@@ -86,6 +86,7 @@ export function temperatureHours(data){
     //iterate from current hour[0] to display next 5 hours
     let x = 0 // x represents the hours used in this day
     for (let startingHour = currentHour; startingHour < dataHours.length; startingHour++) {
+        if(x >= 5){break}
         const todayHours = dataHours[startingHour]
         arrayHours.push(todayHours)
         //console.log(dataHours[startingHour])
@@ -100,32 +101,94 @@ export function temperatureHours(data){
     console.log(arrayHours)
 
     function displayHours(array){
-        const section = document.querySelector('.hours-container')
+        const section = document.querySelector('.hours_container')
 
 
         array.forEach((hour )=> {
             const [hourText,minutes,seconds] = hour.datetime.split(':')
+            const [smallTemperature,decimals] = hour.temp.toString().split('.')
 
 
             const smallCard = document.createElement('div')
-            smallCard.classList.add('hours-small-card')
+            smallCard.classList.add('hours_small-card')
             section.appendChild(smallCard)
             
             const title = document.createElement('span')
             title.classList.add('hours_title')
-            title.textContent = hourText
+            title.textContent = `${hourText}:${minutes} `
             smallCard.appendChild(title)
 
+            const iconContainer = document.createElement('div')
+            iconContainer.classList.add('hours_icon-container')
+            smallCard.appendChild(iconContainer)
+            
             const icon = document.createElement('img')
             icon.classList.add('hours_icon')
             icon.setAttribute('src', `/icons/${hour.icon}.svg`)
-            smallCard.appendChild(icon)
+            iconContainer.appendChild(icon)
 
             const temperature = document.createElement('span')
             temperature.classList.add('hours_temperature')
-            temperature.textContent = hour.temp
+            temperature.textContent = `${smallTemperature}°`
             smallCard.appendChild(temperature)
         })
     }
+
     displayHours(arrayHours)
+}
+export function displayDays(data){
+    const section = document.querySelector('.days_container')
+    const daysArray = data.days
+    
+    function getDate(i){
+        const date = daysArray[i].datetime
+        const nameDay = format(new Date(date), 'EEE')
+        const month = format(new Date(date), 'LLL')
+        const dayNumber = format(new Date(date), 'd')
+
+        return {nameDay,month,dayNumber}
+    }
+    function getIcon(i){
+        const hoursIcon = daysArray[i].hours[12].icon
+        const [temperature,decimal] = daysArray[i].hours[12].temp.toString().split('.')
+        return {hoursIcon,temperature}
+    }
+
+ 
+
+    for(let i = 0; i <= 4; i++){
+        console.log(daysArray[i])
+        const smallCard = document.createElement('div')
+        smallCard.classList.add('days_small-card')
+        section.appendChild(smallCard)
+        
+        const titleContainer = document.createElement('div')
+        titleContainer.classList.add('days_title-container')
+        smallCard.appendChild(titleContainer)
+        
+        const title = document.createElement('span')
+        title.textContent = getDate(i).nameDay
+        title.classList.add('days_title')
+        titleContainer.appendChild(title)
+
+        const titleDate = document.createElement('span')
+        titleDate.textContent = getDate(i).month +' '+ getDate(i).dayNumber
+        titleDate.classList.add('days_title-date')
+        titleContainer.appendChild(titleDate)
+
+        
+        const iconContainer = document.createElement('div')
+        iconContainer.classList.add('days_icon-container')
+        smallCard.appendChild(iconContainer)
+
+        const icon = document.createElement('img')
+        icon.setAttribute('src',`/icons/${getIcon(i).hoursIcon}.svg`)
+        icon.classList.add('days_icon')
+        iconContainer.appendChild(icon)
+
+        const temperature = document.createElement('span')
+        temperature.textContent = `${getIcon(i).temperature}°`
+        temperature.classList.add('days_temperature')
+        smallCard.appendChild(temperature)
+    }
 }
