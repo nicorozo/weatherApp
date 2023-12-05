@@ -81,7 +81,7 @@ export function temperatureHours(data){
     const arrayHours = []
 
 
-    console.log(dataHours, currentHour)
+    console.log('dataHours',dataHours,'current Hour:', currentHour)
 
     //iterate from current hour[0] to display next 5 hours
     let x = 0 // x represents the hours used in this day
@@ -98,10 +98,11 @@ export function temperatureHours(data){
         const nextDayHours = dataHoursNextDay[nextDayStartingHours]
         arrayHours.push(nextDayHours)
     }
-    console.log(arrayHours)
+    //console.log(arrayHours)
 
     function displayHours(array){
         const section = document.querySelector('.hours_container')
+        section.innerHTML = ''
 
 
         array.forEach((hour )=> {
@@ -139,6 +140,7 @@ export function temperatureHours(data){
 export function displayDays(data){
     const section = document.querySelector('.days_container')
     const daysArray = data.days
+    section.innerHTML = ''
     
     function getDate(i){
         const date = daysArray[i].datetime
@@ -157,7 +159,7 @@ export function displayDays(data){
  
 
     for(let i = 0; i <= 4; i++){
-        console.log(daysArray[i])
+        
         const smallCard = document.createElement('div')
         smallCard.classList.add('days_small-card')
         section.appendChild(smallCard)
