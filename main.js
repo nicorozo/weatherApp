@@ -2,7 +2,8 @@ import './style.css'
 import './styles/main.css'
 import './styles/options.css'
 import { Card, displayDays, temperatureHours } from './js/card'
-import { getLocation } from './js/search'
+import { searchLocation } from './js/search'
+import { locationsHistory } from './js/modal'
 
 
 /* Pending List
@@ -12,10 +13,10 @@ import { getLocation } from './js/search'
 */
 
 
-export default async function fetchingData(location) {
+export default async function fetchingData() {
 
     const defaultCity = "madrid" // searchedResult || "wroclaw" this may need to be await and inside fetching function 
-    const city = location || defaultCity
+    const city =  searchLocation().getLocation() || defaultCity
     const apiKey = '6E9W5YSKUUH74ZCT24N29YQ5E'
     const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${apiKey}&contentType=json`
 
@@ -27,6 +28,7 @@ export default async function fetchingData(location) {
         Card(data)
         temperatureHours(data)
         displayDays(data)
+        
         return data
     }
     catch (error){
@@ -40,12 +42,15 @@ fetchingData()
 /* Events */
 const searchBtn = document.querySelector('.navbar_search-btn')
 searchBtn.addEventListener('click', ()=>{
-    fetchingData(getLocation())
+    if(!searchLocation().isLocation()){alert('false')}
+
+    fetchingData()
 })
 const modal = document.getElementById('modal');
 
 const opendOptions = document.querySelector('.navbar_menu-btn')
 opendOptions.addEventListener('click', ()=>{
+    locationsHistory().displayList()
     modal.style.left = '0'
 })
 const closeBtn= document.getElementById('closeButton');

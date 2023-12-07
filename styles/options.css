@@ -2,17 +2,38 @@
     position: fixed;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     top: 0;
-    right: -100%; /* Start off-screen to the right */
+    left: 100%; /* Start off-screen to the right */
     width: 100%;
     height: 100%;
     background-color: rgb(33, 41, 67);
     padding: 20px;
     box-shadow: 0 2px 5px rgba(73, 73, 73, 0.2);
     transition: left 0.5s ease-in-out;
+    box-sizing: border-box;
   }
   .modal_upper{
     display: flex;
-    justify-content: space-evenly;
-    height: 20%;
+    width: 100%;
+    height: 10%;
+  }
+  .modal_main-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+   border: 1px dashed rgba(255, 255, 255, 0.185) ; 
+   border-radius: 15px;
+  }
+  .modal_list{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    list-style: none;
+  }
+  .modal_history-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }

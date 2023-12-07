@@ -1,6 +1,7 @@
 //fetched data to DOM
 import { format } from "date-fns"
 import { dummyData } from "./dummy"
+import { locationsHistory } from "./modal"
 
 
 
@@ -54,6 +55,7 @@ export function Card(data){
         icon: getIcon(0) || "",
 
     }
+    
 
 
     const cardSection = document.querySelector('.main')
@@ -70,7 +72,9 @@ export function Card(data){
     weatherWord.innerText = cleanData.weatherDescription
     mainDate.innerText = `${cleanData.date.dayOfWeek}, ${cleanData.date.dayNumber} - ${cleanData.date.hour}:${cleanData.date.minutes}` 
     mainIcon.setAttribute('src',cleanData.icon)
-    
+
+    /* item added to history array  */
+    locationsHistory(cleanData).addNewItemToArray()
 }
 
 export function temperatureHours(data){

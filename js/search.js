@@ -1,10 +1,21 @@
 
-export function getLocation(){
+export function searchLocation(){
+
     const searchBar = document.querySelector('#searchbar')
     const location = searchBar.value
-    console.log('location:',location)
-    //Clear the search bar on focus
-    searchBar.value = ''
-    console.log('value',searchBar.value)
-    return location
+
+    function isLocation(){
+        if(location === ''){
+            return false
+        }
+        return true
+    }
+    function getLocation(){
+        searchBar.value = '' //clear searchbar
+        
+        console.log('location:',location)
+        return location
+    }
+    
+    return{getLocation,isLocation}
 }
