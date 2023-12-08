@@ -18,10 +18,10 @@
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
-
 }
 
 h1 {
@@ -64,4 +64,13 @@ h1 {
   border: none;
   cursor: pointer;
 }
-
+@media (min-width: 550px) {
+  .main{
+    width: 30%;
+  }
+  section.computer_section{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+}

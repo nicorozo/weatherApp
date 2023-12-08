@@ -5,17 +5,31 @@
 
     create dataset as id with city name and date to avoid repeated ones 
      */
+function getHistory(){
+   const history = window.localStorage.getItem('searchHistory')
+   const parse = JSON.parse(history)
+   return parse
+}
 
-const historyArray = []
+const historyArray = getHistory() || []
 
 
 export function locationsHistory(cleanData){
     
     function addNewItemToArray(){
+
         console.trace('add new item to history array')
+        
+        // add one at beginning and check length
+        historyArray.unshift(cleanData)
         console.log('historyArray',historyArray)
-        historyArray.push(cleanData)
+        if(historyArray.length > 9){
+            historyArray.pop()
+        }
+
+        window.localStorage.setItem('searchHistory',JSON.stringify(historyArray))
     }
+    
 
     function displayList(){
         console.trace('displayList triggered on options button')
@@ -47,12 +61,13 @@ export function locationsHistory(cleanData){
                 date: getDate(),
                 icon: getIcon(0) || "", */
 
-            historyItemContainer.dataset.itemName = listItem.city
+            historyItemContainer.dataset.itemName = `${listItem.city}/${listItem.date.dateForHistory}`
             city.textContent = listItem.city
             date.textContent = listItem.date.dateForHistory
             temperature.textContent = listItem.temperature
             icon.setAttribute('src',listItem.icon)
-            //icon.textContent = listItem.icon
+
+
         })
     }
 

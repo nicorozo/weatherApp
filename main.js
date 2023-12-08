@@ -12,7 +12,6 @@ import { locationsHistory } from './js/modal'
     -correct color of icons
 */
 
-
 export default async function fetchingData() {
 
     const defaultCity = "madrid" // searchedResult || "wroclaw" this may need to be await and inside fetching function 
@@ -38,6 +37,8 @@ export default async function fetchingData() {
 }
 
 fetchingData()
+
+
 
 /* Events */
 const searchBtn = document.querySelector('.navbar_search-btn')

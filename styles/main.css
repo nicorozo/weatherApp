@@ -188,3 +188,9 @@ font-weight: 500;
 .days_temperature{
     font-weight: 500;
 }
+/* computer */
+.computer_section{
+    display: none;
+    padding: 1rem;
+    
+}
