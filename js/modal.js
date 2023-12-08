@@ -32,9 +32,11 @@ export function locationsHistory(cleanData){
             modalUl.appendChild(historyItemContainer)
 
             const city = document.createElement('div')
+            city.classList.add('modal_city')
             const date = document.createElement('div')
             const temperature = document.createElement('div')
-            const icon = document.createElement('div')
+            const icon = document.createElement('img')
+            
 
             historyItemContainer.append(city,date,temperature,icon)
 
@@ -47,8 +49,9 @@ export function locationsHistory(cleanData){
 
             historyItemContainer.dataset.itemName = listItem.city
             city.textContent = listItem.city
-            date.textContent = listItem.date
+            date.textContent = listItem.date.dateForHistory
             temperature.textContent = listItem.temperature
+            icon.setAttribute('src',listItem.icon)
             //icon.textContent = listItem.icon
         })
     }

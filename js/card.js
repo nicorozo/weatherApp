@@ -26,6 +26,8 @@ export function Card(data){
     function getDate(city){
         const dayOfWeek = format(new Date(), 'eeee', 'd')
         const dayNumber = format(new Date(), 'd')
+        const month = format(new Date(),'LLL')
+        const dateForHistory = `${dayNumber} / ${month} `
 
         const date = new Date();
         const offset = date.getTimezoneOffset() / 60;
@@ -37,7 +39,7 @@ export function Card(data){
         const minutes = format(new Date(), 'm')
         
         
-        return {dayOfWeek,dayNumber,hour,minutes}
+        return {dayOfWeek,dayNumber,hour,minutes,dateForHistory}
     }
     function getIcon(x){
         const icon = data.days[x].icon
