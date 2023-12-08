@@ -1,6 +1,5 @@
 //fetched data to DOM
 import { format } from "date-fns"
-import { dummyData } from "./dummy"
 import { locationsHistory } from "./modal"
 
 
@@ -99,7 +98,7 @@ export function temperatureHours(data){
         
         x++
     }
-    const remainer =  (5-x )
+    const remainer =  (5 - x)
     for (let nextDayStartingHours = 0; nextDayStartingHours < remainer; nextDayStartingHours++) {
         const nextDayHours = dataHoursNextDay[nextDayStartingHours]
         arrayHours.push(nextDayHours)

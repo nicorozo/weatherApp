@@ -192,5 +192,7 @@ font-weight: 500;
 .computer_section{
     display: none;
     padding: 1rem;
-    
+}
+.computer_section h2{
+    font-size: 2rem;
 }
