@@ -12,19 +12,15 @@ export function Card(data){
     function getTemperatureColor(){
         const temperature =  data.currentConditions.temp
         if(temperature >= 20){
-            alert('first case')
             return 'var(--high-background)'
         }
         if(temperature >= 10 ){
-            alert('temp')
             return 'var(--mid-background)'
         }
         if(temperature >= 0 ){
-            alert('temp')
             return 'var(--low-background)'
         }
         if(temperature >= -10 ){
-            alert('temp')
             return 'var(--super-low-background)'
         }
         else alert('nothing')
