@@ -1,12 +1,15 @@
 :root {
-  --night-background:linear-gradient(150deg, rgb(21, 40, 98) 10%, rgb(3, 55, 116) 100%);
+  --high-background:linear-gradient(150deg, rgb(223, 108, 0) 10%, rgb(235, 235, 13) 100%);
+  --mid-background:linear-gradient(150deg, rgb(69, 201, 21) 10%, rgb(193, 207, 1) 100%);
+  --low-background:linear-gradient(150deg, rgb(97, 102, 117) 10%, rgb(3, 55, 116) 100%);
+  --super-low-background:linear-gradient(150deg, rgb(0, 21, 82) 10%, rgb(85, 7, 180) 100%);
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: var(--night-background);
+  background: yellow;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

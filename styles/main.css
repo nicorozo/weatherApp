@@ -81,9 +81,17 @@ outline: none;
     font-size: 2rem;
     font-weight: 500;
 }
-
-.main_icon{
+.main_icon-container{
+    display: flex;
     width: 100px;
+    height: 100px;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    background-color: rgb(222, 222, 222);
+}
+.main_icon{
+    
+    width: 100%;
     font-size: 100px;
     fill: #ffffff;
 }

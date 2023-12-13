@@ -9,6 +9,28 @@ export function Card(data){
     console.trace()
     console.log(data)
 
+    function getTemperatureColor(){
+        const temperature =  data.currentConditions.temp
+        if(temperature >= 20){
+            alert('first case')
+            return 'var(--high-background)'
+        }
+        if(temperature >= 10 ){
+            alert('temp')
+            return 'var(--mid-background)'
+        }
+        if(temperature >= 0 ){
+            alert('temp')
+            return 'var(--low-background)'
+        }
+        if(temperature >= -10 ){
+            alert('temp')
+            return 'var(--super-low-background)'
+        }
+        else alert('nothing')
+
+    }
+
     function getLocation(){
 
         const locationArray = data.resolvedAddress.split(',')
@@ -58,21 +80,25 @@ export function Card(data){
     }
     
 
-
+    const body = document.querySelector('body')
     const cardSection = document.querySelector('.main')
     const country = cardSection.querySelector('.main_country')
     const city = cardSection.querySelector('.main_city')
     const mainTemperature = cardSection.querySelector('.main_temperature')
     const weatherWord = cardSection.querySelector('.main_weather-word')
     const mainDate = cardSection.querySelector('.main_date-time')
+    const iconContainer = cardSection.querySelector('.main_icon-container')
     const mainIcon = cardSection.querySelector('.main_icon')
-    
+
+    body.style.background = getTemperatureColor()
     country.innerText = cleanData.country
     city.innerText = cleanData.city
     mainTemperature.innerText = cleanData.temperature
     weatherWord.innerText = cleanData.weatherDescription
     mainDate.innerText = `${cleanData.date.dayOfWeek}, ${cleanData.date.dayNumber} - ${cleanData.date.hour}:${cleanData.date.minutes}` 
-    mainIcon.setAttribute('src',cleanData.icon)
+    iconContainer.style = `mask-image: url(${cleanData.icon})`
+    iconContainer.style = `-webkit-mask-image: url(${cleanData.icon})`
+    //mainIcon.setAttribute('src',cleanData.icon)
 
     /* item added to history array  */
     locationsHistory(cleanData).addNewItemToArray()
